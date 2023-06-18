@@ -1,0 +1,8 @@
+.top-bar {
+	background-color: antiquewhite;
+	height: 80px;
+	width: 80%;
+	position: fixed;
+	top: 0;
+	right: 0;
+}

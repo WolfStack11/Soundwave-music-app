@@ -1,25 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+
+import { useSelector } from "react-redux";
+import { Route, Routes } from "react-router-dom";
+
+import { Searchbar, Sidebar, MusicPlayer, TopPlay } from "./Components";
+import {
+	ArtistDetails,
+	TopArtists,
+	AroundYou,
+	Discover,
+	Search,
+	SongDetails,
+	TopCharts,
+} from "./pages";
+import LeftMenu from "./Components/LeftMenu";
+import TopBar from "./Components/TopBar";
+import BottomBar from "./Components/BottomBar";
+import MainArea from "./Components/MainArea";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	return (
+		<div className="App">
+			<div className="main-container">
+				<LeftMenu />
+				<div className="main-area-container">
+					<TopBar />
+					<MainArea />
+				</div>
+			</div>
+			<BottomBar />
+		</div>
+	);
 }
 
 export default App;
