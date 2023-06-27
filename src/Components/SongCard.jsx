@@ -29,7 +29,7 @@ const SongCard = ({ song, isPlaying, activeSong, i, data }) => {
 			<div className="relative w-full h-56 group">
 				<div
 					className={`absolute inset-0 justify-center items-center bg-black bg-opacity-50 group-hover:flex ${
-						activeSong?.title === song.trackMetadata.trackName
+						activeSong?.trackMetadata === song.trackMetadata.trackName
 							? "flex bg-black bg-opacity-70"
 							: "hidden"
 					}`}
@@ -45,10 +45,10 @@ const SongCard = ({ song, isPlaying, activeSong, i, data }) => {
 				<img src={song.trackMetadata.displayImageUri} alt="song_img" />
 			</div>
 			<div className="mt-4 flex flex-col">
-				<p className="font-semibold text-lg truncate">
+				<p className="font-semibold text-lg truncate text-white">
 					<Link to={`/songs/${song?.key}`}>{song.trackMetadata.trackName}</Link>
 				</p>
-				<p className="text-sm truncate mt-1">
+				<p className="text-sm truncate mt-1 text-white">
 					<Link
 						to={
 							song.trackMetadata.artists

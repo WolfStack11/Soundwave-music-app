@@ -1,6 +1,6 @@
 import "./App.css";
 
-import { useSelector, Provider } from "react-redux";
+import { useSelector } from "react-redux";
 import { Route, Routes } from "react-router-dom";
 
 import { Searchbar, Sidebar, MusicPlayer, TopPlay } from "./Components";
@@ -13,11 +13,6 @@ import {
 	SongDetails,
 	TopCharts,
 } from "./pages";
-
-import LeftMenu from "./Components/LeftMenu";
-import TopBar from "./Components/TopBar";
-import BottomBar from "./Components/BottomBar";
-import MainArea from "./Components/MainArea";
 
 function App() {
 	const { activeSong } = useSelector((state) => state.player);
@@ -44,7 +39,7 @@ function App() {
 				</div>
 			</div>
 
-			{activeSong?.title && (
+			{activeSong?.trackMetadata && (
 				<div className="absolute h-28 bottom-0 left-0 right-0 flex animate-slideup bg-gradient-to-br from-white/10 to-[#2a2a80] backdrop-blur-lg rounded-t-3xl z-10">
 					<MusicPlayer />
 				</div>
