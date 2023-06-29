@@ -1,9 +1,9 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
-export const spotifyAPI = createApi({
+export const shazamAPI = createApi({
 	reducerPath: "spotifyAPI",
 	baseQuery: fetchBaseQuery({
-		baseUrl: "https://spotify81.p.rapidapi.com",
+		baseUrl: "https://shazam-core.p.rapidapi.com/v1",
 		prepareHeaders: (headers) => {
 			headers.set(
 				"X-RapidAPI-Key",
@@ -13,8 +13,11 @@ export const spotifyAPI = createApi({
 		},
 	}),
 	endpoints: (builder) => ({
-		getTopSongs: builder.query({ query: () => "/top_200_tracks" }),
+		getTopSongs: builder.query({ query: () => "/charts/world" }),
+		getSongDetails: builder.query({
+			query: ({ songid }) => `/tracks/details?track_id${songid}`,
+		}),
 	}),
 });
 
-export const { useGetTopSongsQuery } = spotifyAPI;
+export const { useGetTopSongsQuery, useGetSongDetailsQuery } = shazamAPI;

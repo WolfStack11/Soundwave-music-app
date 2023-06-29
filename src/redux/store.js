@@ -1,13 +1,13 @@
 import { configureStore } from "@reduxjs/toolkit";
 
 import playerReducer from "./features/playerSlice";
-import { spotifyAPI } from "./services/spotifyCore";
+import { shazamAPI } from "./services/shazamAPI";
 
 export const store = configureStore({
 	reducer: {
-		[spotifyAPI.reducerPath]: spotifyAPI.reducer,
+		[shazamAPI.reducerPath]: shazamAPI.reducer,
 		player: playerReducer,
 	},
 	middleware: (getDefaultMiddleware) =>
-		getDefaultMiddleware().concat(spotifyAPI.middleware),
+		getDefaultMiddleware().concat(shazamAPI.middleware),
 });

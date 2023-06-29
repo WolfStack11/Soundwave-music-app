@@ -1,8 +1,9 @@
 import { useDispatch, useSelector } from "react-redux";
 import { Error, Loader, SongCard } from "../Components";
 import { genres } from "../assets/constants";
+import { TopPlay } from "../Components";
 
-import { useGetTopSongsQuery } from "../redux/services/spotifyCore";
+import { useGetTopSongsQuery } from "../redux/services/shazamAPI";
 
 const Discover = () => {
 	const dispatch = useDispatch();
@@ -15,6 +16,9 @@ const Discover = () => {
 
 	return (
 		<div className="flex flex-col">
+			<div className="mb-10">
+				<TopPlay />
+			</div>
 			<div className="w-full flex justify-between items-center sm:flex-row flex-col mt-4 mb-10">
 				<h2 className="font-bold text-3xl text-white text-left">
 					Discover {genreTitle}

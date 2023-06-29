@@ -5,14 +5,6 @@ import PlayPause from "./PlayPause";
 import { playPause, setActiveSong } from "../redux/features/playerSlice";
 
 const SongCard = ({ song, isPlaying, activeSong, i, data }) => {
-	const getArtists = () => {
-		// returneaza doar primul artist
-		let artists = song.trackMetadata.artists;
-		for (let j = 0; j < artists.length; j++) {
-			return artists[j].name;
-		}
-	};
-
 	const dispatch = useDispatch();
 
 	const handlePauseClick = () => {
@@ -29,7 +21,7 @@ const SongCard = ({ song, isPlaying, activeSong, i, data }) => {
 			<div className="relative w-full h-56 group">
 				<div
 					className={`absolute inset-0 justify-center items-center bg-black bg-opacity-50 group-hover:flex ${
-						activeSong?.trackMetadata === song.trackMetadata.trackName
+						activeSong?.title === song.title
 							? "flex bg-black bg-opacity-70"
 							: "hidden"
 					}`}
@@ -42,21 +34,21 @@ const SongCard = ({ song, isPlaying, activeSong, i, data }) => {
 						handlePlay={handlePlayClick}
 					/>
 				</div>
-				<img src={song.trackMetadata.displayImageUri} alt="song_img" />
+				<img src={song.images?.coverart} alt="song_img" />
 			</div>
 			<div className="mt-4 flex flex-col">
 				<p className="font-semibold text-lg truncate text-white">
-					<Link to={`/songs/${song?.key}`}>{song.trackMetadata.trackName}</Link>
+					<Link to={`/songs/${song?.key}`}>{song.title}</Link>
 				</p>
 				<p className="text-sm truncate mt-1 text-white">
 					<Link
 						to={
-							song.trackMetadata.artists
-								? `/artists/${song.trackMetadata.artists[0]?.spotifyUri}`
+							song.artists
+								? `/artists/${song?.artists[0]?.adamid}`
 								: "/top-artists"
 						}
 					>
-						{getArtists()}
+						{song.subtitle}
 					</Link>
 				</p>
 			</div>
