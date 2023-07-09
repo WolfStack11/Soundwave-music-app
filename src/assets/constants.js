@@ -1,9 +1,10 @@
 import {
-	HiOutlineHashtag,
-	HiOutlineHome,
-	HiOutlinePhotograph,
-	HiOutlineUserGroup,
-} from "react-icons/hi";
+	TiHome,
+	TiLocationArrow,
+	TiUser,
+	TiChartBar,
+	TiHeart,
+} from "react-icons/ti";
 
 export const genres = [
 	{ title: "Pop", value: "POP" },
@@ -23,8 +24,9 @@ export const genres = [
 ];
 
 export const links = [
-	{ name: "Discover", to: "/", icon: HiOutlineHome },
-	{ name: "Near You", to: "/near-you", icon: HiOutlinePhotograph },
-	{ name: "Top Artists", to: "/top-artists", icon: HiOutlineUserGroup },
-	{ name: "Top Charts", to: "/top-charts", icon: HiOutlineHashtag },
+	{ name: "Discover", to: "/", icon: TiHome },
+	{ name: "Near You", to: "/near-you", icon: TiLocationArrow },
+	{ name: "Top Artists", to: "/top-artists", icon: TiUser },
+	{ name: "Top Charts", to: "/top-charts", icon: TiChartBar },
+	{ name: "Favorites", to: "/favorites", icon: TiHeart },
 ];

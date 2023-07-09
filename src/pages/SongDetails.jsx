@@ -34,9 +34,9 @@ const SongDetails = () => {
 	if (error) return <Error />;
 
 	return (
-		<div className="flex flex-col">
+		<div className="flex flex-col ">
 			<DetailsHeader songData={songData} />
-			<div className="mb-10">
+			<div className="mb-10 z-50">
 				<h2 className="text-white text-3xl font-bold">Lyrics</h2>
 				<div className="mt-5">
 					{songData?.sections[1].type === "LYRICS" ? (
@@ -48,14 +48,15 @@ const SongDetails = () => {
 					)}
 				</div>
 			</div>
-
-			<RelatedSongs
-				data={data}
-				isPlaying={isPlaying}
-				activeSong={activeSong}
-				handlePauseClick={handlePauseClick}
-				handlePlayClick={handlePlayClick}
-			/>
+			<div className="z-50">
+				<RelatedSongs
+					data={data}
+					isPlaying={isPlaying}
+					activeSong={activeSong}
+					handlePauseClick={handlePauseClick}
+					handlePlayClick={handlePlayClick}
+				/>
+			</div>
 		</div>
 	);
 };

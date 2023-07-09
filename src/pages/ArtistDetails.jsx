@@ -19,14 +19,18 @@ const ArtistDetails = () => {
 
 	return (
 		<div className="flex flex-col">
-			<DetailsHeader artistId={artistId} artistData={artistData} />
+			<div className="z-50">
+				<DetailsHeader artistId={artistId} artistData={artistData} />
+			</div>
 
-			<RelatedSongs
-				data={artistData?.data[0].views["top-songs"]?.data}
-				artistId={artistId}
-				isPlaying={isPlaying}
-				activeSong={activeSong}
-			/>
+			<div className="z-50">
+				<RelatedSongs
+					data={artistData?.data[0].views["top-songs"]?.data}
+					artistId={artistId}
+					isPlaying={isPlaying}
+					activeSong={activeSong}
+				/>
+			</div>
 		</div>
 	);
 };

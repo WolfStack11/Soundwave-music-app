@@ -15,7 +15,9 @@ const TopPlay = () => {
 			<div className="flex flex-row justify-between items-center">
 				<h2 className="text-white font-bold text-2xl">Top Artists</h2>
 				<Link to="/top-artists">
-					<p className="text-gray-300 text-base cursor-pointer">See more</p>
+					<p className="text-gray-300 text-base cursor-pointer hover:text-lime-400">
+						See more
+					</p>
 				</Link>
 			</div>
 
@@ -38,7 +40,7 @@ const TopPlay = () => {
 							<img
 								src={artist?.images?.background}
 								alt="Name"
-								className="rounded-full w-full object-cover"
+								className="rounded-full w-full object-cover hover:scale-105 duration-500"
 							/>
 						</Link>
 					</SwiperSlide>

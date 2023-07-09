@@ -20,10 +20,10 @@ const Discover = () => {
 
 	return (
 		<div className="flex flex-col">
-			<div className="mb-10">
+			<div className="mb-10 z-50">
 				<TopPlay />
 			</div>
-			<div className="w-full flex justify-between items-center sm:flex-row flex-col mt-4 mb-10">
+			<div className="w-full flex justify-between items-center sm:flex-row flex-col mt-4 mb-10 z-50">
 				<h2 className="font-bold text-3xl text-white text-left">
 					Discover {genreTitle}
 				</h2>
@@ -39,17 +39,19 @@ const Discover = () => {
 					))}
 				</select>
 			</div>
-			<div className="flex flex-wrap sm:justify-start justify-center gap-8">
-				{data?.map((song, i) => (
-					<SongCard
-						key={song.key}
-						song={song}
-						isPlaying={isPlaying}
-						activeSong={activeSong}
-						data={data}
-						i={i}
-					/>
-				))}
+			<div className="">
+				<div className="flex flex-wrap sm:justify-start justify-center gap-5">
+					{data?.map((song, i) => (
+						<SongCard
+							key={song.key}
+							song={song}
+							isPlaying={isPlaying}
+							activeSong={activeSong}
+							data={data}
+							i={i}
+						/>
+					))}
+				</div>
 			</div>
 		</div>
 	);
