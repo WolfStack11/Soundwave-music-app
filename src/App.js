@@ -21,7 +21,7 @@ function App() {
 	return (
 		<div className="relative flex">
 			<Sidebar />
-			<div className="flex-1 flex flex-col gradient-bg">
+			<div className="flex-1 flex flex-col gradient-bg z-0">
 				<div className="gradients-container absolute bottom-0 left-0">
 					<div className="g1"></div>
 					<div className="g2"></div>
@@ -47,7 +47,7 @@ function App() {
 			</div>
 
 			{activeSong?.title && (
-				<div className="absolute h-28 bottom-0 left-0 right-0 flex animate-slideup bg-gradient-to-br from-white/10 to-[#2a2a80] backdrop-blur-lg rounded-t-3xl z-10">
+				<div className="absolute h-28 bottom-0 left-0 right-0 flex animate-slideup bg-gradient-to-br from-white/10 to-[#2a2a80] backdrop-blur-lg rounded-t-3xl z-100">
 					<MusicPlayer />
 				</div>
 			)}

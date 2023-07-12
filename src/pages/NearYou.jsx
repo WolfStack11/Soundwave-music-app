@@ -26,7 +26,9 @@ const CountryTracks = () => {
 
 	return (
 		<div className="flex flex-col ">
-			<h2 className="font-bold text-white text-3xl mt-4 mb-10">Near you</h2>
+			<h2 className="font-bold text-white text-3xl mt-4 mb-10 z-10 ">
+				Near you
+			</h2>
 
 			<div className="flex flex-wrap sm:justify-start justify-center gap-5">
 				{data?.map((song, i) => (
