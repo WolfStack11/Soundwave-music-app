@@ -1,8 +1,13 @@
 import { Link } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import PlayPause from "./PlayPause";
 import { playPause, setActiveSong } from "../redux/features/playerSlice";
+import {
+	addToFavorites,
+	removeFromFavorites,
+} from "../redux/features/Favorites/actions";
+import { FaHeart } from "react-icons/fa";
 
 const SongCard = ({ song, isPlaying, activeSong, i, data }) => {
 	const dispatch = useDispatch();
@@ -14,6 +19,10 @@ const SongCard = ({ song, isPlaying, activeSong, i, data }) => {
 	const handlePlayClick = () => {
 		dispatch(setActiveSong({ song, data, i }));
 		dispatch(playPause(true));
+	};
+
+	const handleAddToFavorites = () => {
+		dispatch(addToFavorites(song));
 	};
 
 	return (
@@ -51,6 +60,16 @@ const SongCard = ({ song, isPlaying, activeSong, i, data }) => {
 						{song.subtitle}
 					</Link>
 				</p>
+				<button
+					className="text-lime-400 text-left w-2 mt-4 hover:text-indigo-500"
+					onClick={handleAddToFavorites({
+						id: song?.key,
+						image: song.images?.coverart,
+						title: song.title,
+					})}
+				>
+					<FaHeart />
+				</button>
 			</div>
 		</div>
 	);
