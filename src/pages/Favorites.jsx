@@ -1,17 +1,17 @@
 import { useSelector } from "react-redux";
 import { SongCard } from "../Components";
-import { useContext } from "react";
-import { FavoritesContext } from "../redux/features/Favorites/context";
 
 const Favorites = () => {
 	const { activeSong, isPlaying } = useSelector((state) => state.player);
-	const { state } = useContext(FavoritesContext);
+	const favorites = useSelector((state) => state.favorites);
 	return (
 		<div className="flex flex-col ">
-			<h2 className="font-bold text-white text-3xl mt-4 mb-10">Top Charts</h2>
+			<h2 className="font-bold text-white text-3xl mt-4 mb-10 z-10">
+				Favorites
+			</h2>
 
-			<div className="flex flex-wrap sm:justify-start justify-center gap-5">
-				{state?.map((song, i) => (
+			<div className="flex flex-wrap sm:justify-start justify-center gap-5 z-10">
+				{favorites.songs.map((song, i) => (
 					<SongCard
 						key={song.key}
 						song={song}

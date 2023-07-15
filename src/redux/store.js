@@ -2,7 +2,7 @@ import { configureStore } from "@reduxjs/toolkit";
 
 import playerReducer from "./features/playerSlice";
 import { shazamAPI } from "./services/shazamAPI";
-import { favoritesReducer } from "./features/Favorites/favoriteReducer";
+import favoritesReducer from "./features/favoriteSlice";
 
 export const store = configureStore({
 	reducer: {

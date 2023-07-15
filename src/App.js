@@ -12,9 +12,8 @@ import {
 	Search,
 	SongDetails,
 	TopCharts,
+	Favorites,
 } from "./pages";
-
-import Favorites from "./pages/Favorites";
 
 function App() {
 	const { activeSong } = useSelector((state) => state.player);

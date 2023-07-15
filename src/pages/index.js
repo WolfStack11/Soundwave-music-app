@@ -5,6 +5,7 @@ import SongDetails from "./SongDetails";
 import Search from "./Search";
 import TopCharts from "./TopCharts";
 import NearYou from "./NearYou";
+import Favorites from "./Favorites";
 
 export {
 	Discover,
@@ -14,4 +15,5 @@ export {
 	SongDetails,
 	TopCharts,
 	NearYou,
+	Favorites,
 };
