@@ -8,6 +8,7 @@ import {
 	removeFromFavorites,
 } from "../redux/features/favoriteSlice";
 import { FaHeart } from "react-icons/fa";
+import FavoriteButton from "./FavoriteButton";
 
 const SongCard = ({ song, isPlaying, activeSong, i, data }) => {
 	const dispatch = useDispatch();
@@ -23,6 +24,10 @@ const SongCard = ({ song, isPlaying, activeSong, i, data }) => {
 
 	const handleAddToFavorites = (song) => {
 		dispatch(addToFavorites(song));
+	};
+
+	const handleRemoveFromFavorites = (song) => {
+		dispatch(removeFromFavorites(song));
 	};
 
 	return (
@@ -68,6 +73,11 @@ const SongCard = ({ song, isPlaying, activeSong, i, data }) => {
 				>
 					<FaHeart />
 				</button>
+				<FavoriteButton
+					song={song}
+					handleAddFavorites={handleAddToFavorites}
+					handlerRemoveFavorites={handleRemoveFromFavorites}
+				/>
 			</div>
 		</div>
 	);

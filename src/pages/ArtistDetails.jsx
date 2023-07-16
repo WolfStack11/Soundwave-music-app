@@ -20,7 +20,7 @@ const ArtistDetails = () => {
 	return (
 		<div className="flex flex-col">
 			<div className="z-50">
-				<DetailsHeader artistId={artistId} artistData={artistData} />
+				<DetailsHeader artistId={artistId} artistData={artistData?.data[0]} />
 			</div>
 
 			<div className="z-50">
