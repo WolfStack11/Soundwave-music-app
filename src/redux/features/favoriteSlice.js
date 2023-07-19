@@ -11,15 +11,20 @@ const favoritesSlice = createSlice({
 	initialState,
 	reducers: {
 		addToFavorites(state, action) {
-			state.songs.push(action.payload);
-			localStorage.setItem("Favorites Songs", JSON.stringify(state.songs));
+			if (!state.songs.find((song) => song === action.payload)) {
+				state.songs.push(action.payload);
+			} else {
+				return state.songs;
+			}
+
+			// localStorage.setItem("Favorites Songs", JSON.stringify(state.songs));
 		},
 		removeFromFavorites(state, action) {
 			const updatedFavorites = state.songs.filter(
 				(song) => song.id !== action.payload.id
 			);
 			state.songs = updatedFavorites;
-			localStorage.setItem("Favorite Song", JSON.stringify(state.songs));
+			// localStorage.setItem("Favorite Song", JSON.stringify(state.songs));
 		},
 	},
 });

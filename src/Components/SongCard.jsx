@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { useState } from "react";
 import { useDispatch } from "react-redux";
 
 import PlayPause from "./PlayPause";
@@ -7,10 +8,11 @@ import {
 	addToFavorites,
 	removeFromFavorites,
 } from "../redux/features/favoriteSlice";
-import { FaHeart } from "react-icons/fa";
+import { FaHeart, FaRegHeart } from "react-icons/fa";
 import FavoriteButton from "./FavoriteButton";
 
 const SongCard = ({ song, isPlaying, activeSong, i, data }) => {
+	const [isFavorite, setIsFavorite] = useState(false);
 	const dispatch = useDispatch();
 
 	const handlePauseClick = () => {
@@ -24,10 +26,12 @@ const SongCard = ({ song, isPlaying, activeSong, i, data }) => {
 
 	const handleAddToFavorites = (song) => {
 		dispatch(addToFavorites(song));
+		setIsFavorite(true);
 	};
 
 	const handleRemoveFromFavorites = (song) => {
 		dispatch(removeFromFavorites(song));
+		setIsFavorite(false);
 	};
 
 	return (
@@ -68,16 +72,20 @@ const SongCard = ({ song, isPlaying, activeSong, i, data }) => {
 				<button
 					className="text-lime-400 text-left w-2 mt-4 hover:text-indigo-500"
 					onClick={() => {
-						handleAddToFavorites(song);
+						if (!isFavorite) {
+							handleAddToFavorites(song);
+						} else {
+							handleRemoveFromFavorites(song);
+						}
 					}}
 				>
-					<FaHeart />
+					{isFavorite ? <FaHeart /> : <FaRegHeart />}
 				</button>
-				<FavoriteButton
+				{/* <FavoriteButton
 					song={song}
 					handleAddFavorites={handleAddToFavorites}
-					handlerRemoveFavorites={handleRemoveFromFavorites}
-				/>
+					handleRemoveFavorites={handleRemoveFromFavorites}
+				/> */}
 			</div>
 		</div>
 	);
