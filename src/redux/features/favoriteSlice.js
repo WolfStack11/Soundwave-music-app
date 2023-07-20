@@ -4,6 +4,7 @@ const initialState = {
 	songs: localStorage.getItem("Favorites Songs")
 		? JSON.parse(localStorage.getItem("Favorites Songs"))
 		: [],
+	isFavorite: false,
 };
 
 const favoritesSlice = createSlice({
@@ -11,11 +12,11 @@ const favoritesSlice = createSlice({
 	initialState,
 	reducers: {
 		addToFavorites(state, action) {
-			if (!state.songs.find((song) => song === action.payload)) {
-				state.songs.push(action.payload);
-			} else {
-				return state.songs;
+			const songId = action.payload;
+			if (!state.songs.includes(songId)) {
+				state.songs.push(songId);
 			}
+			// state.isFavorite = true;
 
 			// localStorage.setItem("Favorites Songs", JSON.stringify(state.songs));
 		},
@@ -24,11 +25,16 @@ const favoritesSlice = createSlice({
 				(song) => song.id !== action.payload.id
 			);
 			state.songs = updatedFavorites;
+			// state.isFavorite = false;
 			// localStorage.setItem("Favorite Song", JSON.stringify(state.songs));
+		},
+		isFavoriteBtn: (state, action) => {
+			state.isFavorite = action.payload;
 		},
 	},
 });
 
-export const { addToFavorites, removeFromFavorites } = favoritesSlice.actions;
+export const { addToFavorites, removeFromFavorites, isFavoriteBtn } =
+	favoritesSlice.actions;
 
 export default favoritesSlice.reducer;

@@ -10,6 +10,7 @@ const Discover = () => {
 	const { activeSong, isPlaying, genreListId } = useSelector(
 		(state) => state.player
 	);
+	const isFavorite = useSelector((state) => state.favorites.isFavorite);
 	const { data, isFetching, error } = useGetSongsByGenreQuery(
 		genreListId || "POP"
 	);

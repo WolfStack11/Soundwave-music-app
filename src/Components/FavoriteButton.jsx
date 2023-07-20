@@ -1,23 +1,41 @@
+import { useDispatch, useSelector } from "react-redux";
+import {
+	addToFavorites,
+	removeFromFavorites,
+} from "../redux/features/favoriteSlice";
 import { FaHeart, FaRegHeart } from "react-icons/fa";
 
-const PlayPause = ({
-	song,
-	handleAddFavorites,
-	handleRemoveFavorites,
-	isFavorite,
-}) =>
-	isFavorite ? (
-		<FaHeart
-			size={20}
-			className="text-lime-400"
-			onClick={handleRemoveFavorites}
-		/>
-	) : (
-		<FaRegHeart
-			size={20}
-			className="text-lime-400"
-			onClick={handleAddFavorites}
-		/>
-	);
+const FavoriteButton = ({ song }) => {
+	const dispatch = useDispatch();
+	const favoriteSongs = useSelector((state) => state.favorites.songs);
+	const isFavorite = favoriteSongs.includes(song.id);
 
-export default PlayPause;
+	const handleButtonClick = () => {
+		if (isFavorite) {
+			dispatch(removeFromFavorites(song.id));
+		} else {
+			dispatch(addToFavorites(song.id));
+		}
+
+		return (
+			<button>
+				{isFavorite ? (
+					<FaHeart
+						size={20}
+						className="text-lime-400"
+						onClick={handleButtonClick}
+					/>
+				) : (
+					<FaRegHeart
+						size={20}
+						className="text-lime-400"
+						onClick={handleButtonClick}
+					/>
+				)}
+				;
+			</button>
+		);
+	};
+};
+
+export default FavoriteButton;

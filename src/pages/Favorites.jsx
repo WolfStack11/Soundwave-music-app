@@ -3,6 +3,7 @@ import { SongCard } from "../Components";
 
 const Favorites = () => {
 	const { activeSong, isPlaying } = useSelector((state) => state.player);
+	const isFavorite = useSelector((state) => state.favorites.isFavorite);
 	const favorites = useSelector((state) => state.favorites);
 	return (
 		<div className="flex flex-col ">
@@ -15,6 +16,7 @@ const Favorites = () => {
 					<SongCard
 						key={song.key}
 						song={song}
+						isFavorite={isFavorite}
 						isPlaying={isPlaying}
 						activeSong={activeSong}
 						i={i}
