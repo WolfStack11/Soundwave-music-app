@@ -3,6 +3,7 @@ import { NavLink } from "react-router-dom";
 import { RiCloseLine } from "react-icons/ri";
 import { HiOutlineMenu } from "react-icons/hi";
 import { links } from "../assets/constants";
+import { logo } from "../assets";
 
 const NavLinks = ({ handleClick }) => (
 	<div className="mt-10">
@@ -26,7 +27,10 @@ const Sidebar = () => {
 	return (
 		<>
 			<div className="md:flex hidden flex-col w-[240px] py-10 px-4 bg-slate-900">
-				<h1 className="text-white text-xl">Soundwave</h1>
+				<div className="flex items-center">
+					<img src={logo} className="w-12 mr-5" />
+					<h1 className="text-white text-xl">Soundwave</h1>
+				</div>
 				<NavLinks />
 			</div>
 
@@ -50,7 +54,10 @@ const Sidebar = () => {
 					mobileMenuOpen ? "left-0" : "-left-full"
 				}`}
 			>
-				<h1 className="text-white text-xl">Soundwave</h1>
+				<div className="flex items-center">
+					<img src={logo} className="w-12 mr-5" />
+					<h1 className="text-white text-xl">Soundwave</h1>
+				</div>
 				<NavLinks handleClick={() => setMobileMenuOpen(false)} />
 			</div>
 		</>

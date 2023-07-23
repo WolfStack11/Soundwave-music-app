@@ -30,7 +30,7 @@ const SongBar = ({
 			} py-2 p-4 rounded-lg cursor-pointer mb-2`}
 		>
 			<h3 className="font-bold text-base text-white mr-3">{i + 1}.</h3>
-			<div className="flex-1 flex flex-row justify-between items-center">
+			<div className="flex-1 flex flex-col justify-between items-center sm:flex-row">
 				<img
 					className="w-20 h-20 rounded-lg"
 					src={

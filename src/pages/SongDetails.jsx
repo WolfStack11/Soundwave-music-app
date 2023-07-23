@@ -43,7 +43,7 @@ const SongDetails = () => {
 						songData?.sections[1].text.map((line, i) => (
 							<p
 								key={`lyrics-${line}-${i}`}
-								className="text-gray-400 text-4xl my-1 font-bold"
+								className="text-gray-400 text-base sm:text-4xl my-1 font-bold"
 							>
 								{line}
 							</p>

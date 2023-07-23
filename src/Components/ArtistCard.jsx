@@ -4,7 +4,7 @@ const ArtistCard = ({ track }) => {
 	const navigate = useNavigate();
 	return (
 		<div
-			className="flex flex-col w-[200px] p-4 bg-black bg-opacity-70 backdrop-blur-sm animate-slideup rounded-lg cursor-pointer hover:scale-105 duration-500 sm:w-[250px]"
+			className="flex flex-col w-[150px] p-4 bg-black bg-opacity-70 backdrop-blur-sm animate-slideup rounded-lg cursor-pointer hover:scale-105 duration-500 sm:w-[250px]"
 			onClick={() => navigate(`/artists/${track?.artists[0].adamid}`)}
 		>
 			<img

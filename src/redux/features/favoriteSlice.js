@@ -15,8 +15,8 @@ const favoritesSlice = createSlice({
 			const songId = action.payload;
 			if (!state.songs.includes(songId)) {
 				state.songs.push(songId);
+				state.isFavorite = true;
 			}
-			// state.isFavorite = true;
 
 			// localStorage.setItem("Favorites Songs", JSON.stringify(state.songs));
 		},
@@ -25,7 +25,7 @@ const favoritesSlice = createSlice({
 				(song) => song.id !== action.payload.id
 			);
 			state.songs = updatedFavorites;
-			// state.isFavorite = false;
+			state.isFavorite = false;
 			// localStorage.setItem("Favorite Song", JSON.stringify(state.songs));
 		},
 		isFavoriteBtn: (state, action) => {
